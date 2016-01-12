@@ -40,7 +40,11 @@ angular
             .otherwise({
                 redirectTo: '/'
             });
-    }).run(['$rootScope', '$location', 'authFactory',
+    })
+    .config(function($httpProvider) {
+        $httpProvider.interceptors.push('tokenInterceptor');
+    })
+    .run(['$rootScope', '$location', 'authFactory',
         function($rootScope, $location, authService) {
 
             //Client-side security. Server-side framework MUST add it's 
