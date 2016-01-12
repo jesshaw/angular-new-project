@@ -23,6 +23,29 @@ angular.module('angularNewProjectApp')
                 };
 
             factoryLocal.login = function(userName, password) {
+                // var req = {
+                //     method: 'POST',
+                //     url: 'http://example.com',
+                //     headers: {
+                //         'Content-Type': undefined
+                //     },
+                //     data: {
+                //         test: 'test'
+                //     }
+                // }
+
+                $http({
+                    url: serviceBase + 'login',
+                    method: "POST",
+                    headers: {
+                        'Authorization': 'Basic dGVzdDp0ZXN0',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: {
+                        'Code': 'test data'
+                    }
+                });
+
                 return $http.post(serviceBase + 'login', {
                     userLogin: {
                         userName: userName,
