@@ -13,6 +13,7 @@ angular.module('angularNewProjectApp')
             return {
                 request: function(config) {
                     config.headers = config.headers || {};
+                    console.log($window.sessionStorage.token);
                     if ($window.sessionStorage.token) {
                         config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
                     }

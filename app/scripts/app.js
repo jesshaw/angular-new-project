@@ -32,6 +32,12 @@ angular
                 controllerAs: 'about',
                 secure: true
             })
+            .when('/car', {
+                templateUrl: 'views/car.html',
+                controller: 'CarCtrl',
+                controllerAs: 'vm',
+                secure: true
+            })
             .when('/login/:redirect*?', {
                 templateUrl: 'views/login.html',
                 controller: 'LoginCtrl',
