@@ -57,6 +57,14 @@ angular.module('angularNewProjectApp')
                 $rootScope.$broadcast('loginStatusChanged', loggedIn);
             }
 
+            factoryLocal.checkAuthentication = function() {
+                return $http.post(serviceBase + 'checkAuth').then(
+                    function(results) {
+                        var loggedIn = results.data.status;
+                        factoryLocal.user.isAuthenticated = loggedIn;
+                    });
+            };
+
             return factoryLocal;
         }
     ]);
