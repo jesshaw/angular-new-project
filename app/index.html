@@ -40,6 +40,10 @@
                         <li><a ng-href="#/about">About</a></li>
                         <li><a ng-href="#/">Contact</a></li>
                         <li><a ng-href="#/car">car</a></li>
+                        <li id="nav-login" ng-click="vm.loginOrOut()">
+                            <!-- href not used but needed to compare against path in menu-highlighter -->
+                            <a data-href="#/login">{{ vm.loginLogoutText }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -66,8 +66,13 @@ angular
 
 
                     //http://stackoverflow.com/questions/27065317/how-to-check-authentication-and-automatically-redirect-to-login-state-with-ui-ro
-                    authService.checkAuthentication.then(function() {
+                    authService.checkAuthentication().then(function() {
                         if (!authService.user.isAuthenticated) {
+                            authService.redirectToLogin();
+                        }
+                    }, function(error) {
+                        console.log(error);
+                        if (error && error.status == 401) {
                             authService.redirectToLogin();
                         }
                     });

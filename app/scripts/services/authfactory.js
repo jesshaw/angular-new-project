@@ -15,7 +15,7 @@ angular.module('angularNewProjectApp')
         function($http, $rootScope, $window) {
             var serviceBase = 'http://localhost:8080/account/',
                 factoryLocal = {
-                    loginPath: '/login',
+                    loginPath: serviceBase + 'login',
                     user: {
                         isAuthenticated: false,
                         roles: null
@@ -43,6 +43,7 @@ angular.module('angularNewProjectApp')
                 return $http.post(serviceBase + 'logout').then(
                     function(results) {
                         var loggedIn = !results.data.status;
+                        $window.sessionStorage.token = null;
                         changeAuth(loggedIn);
                         return loggedIn;
                     });
@@ -61,7 +62,7 @@ angular.module('angularNewProjectApp')
                 return $http.post(serviceBase + 'checkAuth').then(
                     function(results) {
                         var loggedIn = results.data.status;
-                        factoryLocal.user.isAuthenticated = loggedIn;
+                        changeAuth(loggedIn);
                     });
             };
 
