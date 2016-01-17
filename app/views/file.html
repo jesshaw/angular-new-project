@@ -1,0 +1,9 @@
+<p>This is the file view.</p>
+<p>Try uploading multiple files at a time.</p>
+<form name="uploadForm" novalidate enctype="multipart/form-data">
+    <input type="file" class="form-control" name="file" multiple data-ng-model="vm.file">
+    <button type="submit" class="btn btn-primary" data-ng-click="vm.upload()">
+        Upload
+    </button>
+    <div>{{vm.errorMessage}}</div>
+</form>

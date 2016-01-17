@@ -38,6 +38,12 @@ angular
                 controllerAs: 'vm',
                 secure: true
             })
+            .when('/file', {
+                templateUrl: 'views/file.html',
+                controller: 'FileCtrl',
+                controllerAs: 'vm',
+                secure: true
+            })
             .when('/login/:redirect*?', {
                 templateUrl: 'views/login.html',
                 controller: 'LoginCtrl',
