@@ -1,9 +1,22 @@
 <p>This is the file view.</p>
 <p>Try uploading multiple files at a time.</p>
-<form name="uploadForm" novalidate enctype="multipart/form-data">
+<!-- <form name="uploadForm" novalidate enctype="multipart/form-data">
     <input type="file" class="form-control" name="file" data-ng-model="vm.file">
     <button type="button" class="btn btn-primary" data-ng-click="vm.upload()">
         Upload
     </button>
     <div>{{vm.errorMessage}}</div>
 </form>
+ -->
+<h4>Upload on file select</h4>
+<button type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+    Select File</button>
+<br>
+<br> File:
+<div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+    <span class="progress" ng-show="f.progress >= 0">
+          <div style="width:{{f.progress}}%"  
+               ng-bind="f.progress + '%'"></div>
+      </span>
+</div>
+{{errorMsg}}
