@@ -43,7 +43,7 @@
                         <li><a ng-href="#/file">File</a></li>
                         <li id="nav-login" ng-click="vm.loginOrOut()">
                             <!-- href not used but needed to compare against path in menu-highlighter -->
-                            <a data-href="#/login">{{ vm.loginLogoutText }}</a>
+                            <a data-href="#/login" ng-bind="vm.loginLogoutText"></a>
                         </li>
                     </ul>
                 </div>
