@@ -11,7 +11,7 @@ angular.module('angularNewProjectApp')
     .service('carService', ['$http',
         function($http) {
             var self = this;
-            var serviceBase = 'http://localhost:8080/cars';
+            var serviceBase = 'http://localhost:9001/cars';
             self.getCars = function() {
                 return $http.get(serviceBase).then(
                     function(results) {

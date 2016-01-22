@@ -1,14 +1,20 @@
-'use strict';
+(function() {
+    'use strict';
 
-/**
- * @ngdoc function
- * @name angularNewProjectApp.controller:LoginCtrl
- * @description
- * # LoginCtrl
- * Controller of the angularNewProjectApp
- */
-angular.module('angularNewProjectApp')
-    .controller('LoginCtrl', ['$location', '$routeParams', 'authFactory', function($location, $routeParams, authFactory) {
+    /**
+     * @ngdoc function
+     * @name angularNewProjectApp.controller:LoginCtrl
+     * @description
+     * # LoginCtrl
+     * Controller of the angularNewProjectApp
+     */
+    angular
+        .module('angularNewProjectApp')
+        .controller('LoginCtrl', LoginCtrl);
+
+    LoginCtrl.$inject = ['$location', '$routeParams', 'authFactory'];
+
+    function LoginCtrl($location, $routeParams, authFactory) {
         var vm = this,
             path = '/';
 
@@ -32,4 +38,6 @@ angular.module('angularNewProjectApp')
                 $location.path(path);
             });
         };
-    }]);
+
+    }
+})();

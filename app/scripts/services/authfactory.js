@@ -13,7 +13,7 @@
 angular.module('angularNewProjectApp')
     .factory('authFactory', ['$http', '$rootScope', '$window',
         function($http, $rootScope, $window) {
-            var serviceBase = 'http://localhost:8080/account/',
+            var serviceBase = 'http://localhost:9001/account/',
                 factoryLocal = {
                     loginPath: serviceBase + 'login',
                     user: {
