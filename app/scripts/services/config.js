@@ -1,15 +1,18 @@
-'use strict';
-
-/**
- * @ngdoc service
- * @name angularNewProjectApp.config
- * @description
- * # config
- * Value in the angularNewProjectApp.
- */
 (function() {
+    'use strict';
+
     var value = {
         useBreeze: false
     };
-    angular.module('angularNewProjectApp').value('config', value);
-}());
+
+    /**
+     * @ngdoc service
+     * @name angularNewProjectApp.config
+     * @description
+     * # config
+     * Value in the angularNewProjectApp.
+     */
+    angular
+        .module('angularNewProjectApp')
+        .value('config', value);
+})();
