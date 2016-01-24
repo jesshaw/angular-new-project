@@ -66,13 +66,6 @@
                 $rootScope.$on("$routeChangeStart", function(event, next) {
                     if (next && next.$$route && next.$$route.secure) {
 
-                        // if (!authService.user.isAuthenticated) {
-                        //     $rootScope.$evalAsync(function() {
-                        //         authService.redirectToLogin();
-                        //     });
-                        // }
-
-
                         //http://stackoverflow.com/questions/27065317/how-to-check-authentication-and-automatically-redirect-to-login-state-with-ui-ro
                         authService.checkAuthentication().then(function() {
                             if (!authService.user.isAuthenticated) {
