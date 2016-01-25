@@ -29,10 +29,10 @@
                         //Get value after hash
                         var trimmedHref = href.substr(href.indexOf('#/') + 1, href.length);
                         //Convert path to same length as trimmedHref
-                        var basePath = path.substr(0, trimmedHref.length);
+                        // var basePath = path.substr(0, trimmedHref.length);
 
                         //See if trimmedHref and basePath match. If so, then highlight that item
-                        if (trimmedHref === basePath) {
+                        if (trimmedHref === path) {
                             angular.element(li).addClass(className);
                         } else {
                             angular.element(li).removeClass(className);
