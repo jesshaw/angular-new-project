@@ -17,16 +17,23 @@
     function authFactory($http, $rootScope, $window) {
 
         var serviceBase = 'http://localhost:9091/account/',
-
             factoryLocal = {
                 loginPath: serviceBase + 'login',
                 user: {
                     isAuthenticated: false,
                     roles: null
-                }
+                },
+                login: login,
+                logout: logout,
+                redirectToLogin: redirectToLogin,
+                checkAuthentication: checkAuthentication
             };
 
-        factoryLocal.login = function(userName, password) {
+        return factoryLocal;
+
+        ////////////
+
+        function login(userName, password) {
 
             return $http.post(serviceBase + 'login', {
                 userLogin: {
@@ -41,9 +48,9 @@
                     changeAuth(loggedIn);
                     return loggedIn;
                 });
-        };
+        }
 
-        factoryLocal.logout = function() {
+        function logout() {
             return $http.post(serviceBase + 'logout').then(
                 function(results) {
                     var loggedIn = !results.data.status;
@@ -51,26 +58,23 @@
                     changeAuth(loggedIn);
                     return loggedIn;
                 });
-        };
+        }
 
-        factoryLocal.redirectToLogin = function() {
+        function redirectToLogin() {
             $rootScope.$broadcast('redirectToLogin', null);
-        };
+        }
 
         function changeAuth(loggedIn) {
             factoryLocal.user.isAuthenticated = loggedIn;
             $rootScope.$broadcast('loginStatusChanged', loggedIn);
         }
 
-        factoryLocal.checkAuthentication = function() {
+        function checkAuthentication() {
             return $http.post(serviceBase + 'checkAuth').then(
                 function(results) {
                     var loggedIn = results.data.status;
                     changeAuth(loggedIn);
                 });
-        };
-
-        return factoryLocal;
-
+        }
     }
 })();

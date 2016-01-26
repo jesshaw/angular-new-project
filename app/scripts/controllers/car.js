@@ -1,15 +1,6 @@
 (function() {
     'use strict';
 
-    function CarCtrl($scope, carService) {
-        carService.getCars().then(
-            function(cars) {
-                $scope.awesomeThings = cars;
-            });
-    }
-
-    CarCtrl.$injector = ['$scope', 'carService'];
-
     /**
      * @ngdoc function
      * @name angularNewProjectApp.controller:CarCtrl
@@ -19,4 +10,14 @@
      */
     angular.module('angularNewProjectApp')
         .controller('CarCtrl', CarCtrl);
+
+    CarCtrl.$injector = ['$scope', 'carService'];
+
+    function CarCtrl($scope, carService) {
+        carService.getCars().then(
+            function(cars) {
+                $scope.awesomeThings = cars;
+            });
+    }
+
 })();

@@ -11,32 +11,26 @@
         .module('angularNewProjectApp')
         .service('fileService', fileService);
 
-    fileService.$inject = ['$http'];
+    fileService.$inject = ['Upload'];
 
-    function fileService($http) {
+    function fileService(Upload) {
 
-        var self = this,
-            serviceBase = 'http://localhost:8080/files/',
-            config = {
-                // method: 'POST',
-                // url: 'http://example.com',
-                headers: {
-                    'content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryDvl8w2z7tmU4JDUH',
-                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                },
-                // data: {
-                //     test: 'test'
-                // }
+        var serviceBase = 'http://localhost:9091/files/upload';
+        var service = {
+            uploadFiles: uploadFiles
+        }
 
-            };
+        return service;
 
-        self.upload = function(file) {
-            return $http.post(serviceBase + 'upload', file, config).then(
-                function(results) {
-                    console.log(results.data);
-                    return results.data;
-                });
-        };
-        return self;
+        ////////////
+
+        function uploadFiles(file) {
+            return Upload.upload({
+                url: serviceBase,
+                data: {
+                    file: file
+                }
+            });
+        }
     }
 })();

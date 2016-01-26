@@ -14,8 +14,15 @@
     menuHighlighter.$injector = ['$location']
 
     function menuHighlighter($location) {
+        return {
+            restrict: 'A',
+            scope: {
+                highlightClassName: '@'
+            },
+            link: link
+        };
 
-        var link = function(scope, element) {
+        function link(scope, element) {
             function setActive() {
                 var path = $location.path();
                 var className = scope.highlightClassName || 'active';
@@ -46,13 +53,5 @@
             //Monitor location changes
             scope.$on('$locationChangeSuccess', setActive);
         };
-
-        return {
-            restrict: 'A',
-            scope: {
-                highlightClassName: '@'
-            },
-            link: link
-        }
     }
 })();

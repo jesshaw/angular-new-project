@@ -12,20 +12,18 @@
         .module('angularNewProjectApp')
         .controller('FileCtrl', FileCtrl);
 
-    FileCtrl.$inject = ['$scope', 'Upload', '$timeout'];
+    FileCtrl.$inject = ['$scope', 'Upload', '$timeout', 'fileService'];
 
-    function FileCtrl($scope, Upload, $timeout) {
-        $scope.uploadFiles = function(file, errFiles) {
+    function FileCtrl($scope, Upload, $timeout, fileService) {
+
+        $scope.uploadFiles = uploadFiles;
+
+        function uploadFiles(file, errFiles) {
             $scope.f = file;
             $scope.errFile = errFiles && errFiles[0];
 
             if (file) {
-                file.upload = Upload.upload({
-                    url: 'http://localhost:9091/files/upload',
-                    data: {
-                        file: file
-                    }
-                });
+                file.upload = fileService.uploadFiles(file);
 
                 file.upload.then(function(response) {
                     $timeout(function() {
