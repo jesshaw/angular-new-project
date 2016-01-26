@@ -21,7 +21,7 @@
 
             if (file) {
                 file.upload = Upload.upload({
-                    url: 'http://localhost:8080/files/upload',
+                    url: 'http://localhost:9091/files/upload',
                     data: {
                         file: file
                     }
