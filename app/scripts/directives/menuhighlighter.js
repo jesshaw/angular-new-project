@@ -11,7 +11,7 @@
         .module('angularNewProjectApp')
         .directive('menuHighlighter', menuHighlighter);
 
-    menuHighlighter.$injector = ['$location']
+    menuHighlighter.$injector = ['$location'];
 
     function menuHighlighter($location) {
         return {
@@ -52,6 +52,6 @@
 
             //Monitor location changes
             scope.$on('$locationChangeSuccess', setActive);
-        };
+        }
     }
 })();

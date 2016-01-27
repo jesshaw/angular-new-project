@@ -73,7 +73,7 @@
                             }
                         }, function(error) {
                             console.log(error);
-                            if (error && error.status == 401) {
+                            if (error && error.status === 401) {
                                 authService.redirectToLogin();
                             }
                         });

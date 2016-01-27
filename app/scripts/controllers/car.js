@@ -14,10 +14,21 @@
     CarCtrl.$injector = ['$scope', 'carService'];
 
     function CarCtrl($scope, carService) {
-        carService.getCars().then(
-            function(cars) {
-                $scope.awesomeThings = cars;
+        var vm = this;
+        vm.awesomeThings = [];
+
+        activate();
+
+        function activate() {
+            return getCars();
+        }
+
+        function getCars() {
+            carService.getCars().then(function(cars) {
+                vm.awesomeThings = cars;
             });
+        }
+
     }
 
 })();

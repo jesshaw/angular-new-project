@@ -15,10 +15,10 @@
 
     function fileService(Upload) {
 
-        var serviceBase = 'http://localhost:9091/files/upload';
+        var serviceBase = "http://localhost:9091/files/upload";
         var service = {
             uploadFiles: uploadFiles
-        }
+        };
 
         return service;
 
