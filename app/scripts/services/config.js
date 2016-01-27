@@ -2,7 +2,8 @@
     'use strict';
 
     var value = {
-        useBreeze: false
+        useBreeze: false,
+        restApiUrl: "http://localhost:9091/",
     };
 
     /**

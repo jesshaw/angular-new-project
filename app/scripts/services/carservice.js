@@ -12,10 +12,10 @@
         .module('angularNewProjectApp')
         .service('carService', carService);
 
-    carService.$inject = ['$http'];
+    carService.$inject = ['$http', 'config'];
 
-    function carService($http) {
-        var serviceBase = 'http://localhost:9091/cars';
+    function carService($http, config) {
+        var serviceBase = config.restApiUrl + '/cars';
         var service = {
             getCars: getChars,
         };

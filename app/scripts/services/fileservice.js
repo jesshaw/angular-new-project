@@ -11,11 +11,11 @@
         .module('angularNewProjectApp')
         .service('fileService', fileService);
 
-    fileService.$inject = ['Upload'];
+    fileService.$inject = ['Upload', 'config'];
 
-    function fileService(Upload) {
+    function fileService(Upload, config) {
 
-        var serviceBase = "http://localhost:9091/files/upload";
+        var serviceBase = config.restApiUrl + "files/upload";
         var service = {
             uploadFiles: uploadFiles
         };

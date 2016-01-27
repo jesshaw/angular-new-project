@@ -12,11 +12,11 @@
         .module('angularNewProjectApp')
         .factory('authFactory', authFactory);
 
-    authFactory.$inject = ['$http', '$rootScope', '$window'];
+    authFactory.$inject = ['$http', '$rootScope', '$window', 'config'];
 
-    function authFactory($http, $rootScope, $window) {
+    function authFactory($http, $rootScope, $window, config) {
 
-        var serviceBase = 'http://localhost:9091/account/',
+        var serviceBase = config.restApiUrl + 'account/',
             factoryLocal = {
                 loginPath: serviceBase + 'login',
                 user: {
