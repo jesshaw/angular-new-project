@@ -19,6 +19,8 @@
 
         activate();
 
+        ////////////
+
         function activate() {
             return getCars();
         }

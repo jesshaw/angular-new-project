@@ -12,15 +12,21 @@
         .module('angularNewProjectApp')
         .controller('FileCtrl', FileCtrl);
 
-    FileCtrl.$inject = ['$scope', 'Upload', '$timeout', 'fileService'];
+    FileCtrl.$inject = ['Upload', '$timeout', 'fileService'];
 
-    function FileCtrl($scope, Upload, $timeout, fileService) {
+    function FileCtrl(Upload, $timeout, fileService) {
+        var vm = this;
 
-        $scope.uploadFiles = uploadFiles;
+        vm.f = null;
+        vm.errFile = null;
+        vm.errorMsg = null;
+        vm.uploadFiles = uploadFiles;
+
+        ////////////
 
         function uploadFiles(file, errFiles) {
-            $scope.f = file;
-            $scope.errFile = errFiles && errFiles[0];
+            vm.f = file;
+            vm.errFile = errFiles && errFiles[0];
 
             if (file) {
                 file.upload = fileService.uploadFiles(file);
@@ -30,13 +36,14 @@
                         file.result = response.data;
                     });
                 }, function(response) {
-                    if (response.status > 0)
-                        $scope.errorMsg = response.status + ': ' + response.data;
+                    if (response.status > 0) {
+                        vm.errorMsg = response.status + ': ' + response.data;
+                    }
                 }, function(evt) {
                     file.progress = Math.min(100, parseInt(100.0 *
                         evt.loaded / evt.total));
                 });
             }
-        };
+        }
     }
 })();
