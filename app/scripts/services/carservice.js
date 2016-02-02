@@ -15,7 +15,7 @@
     carService.$inject = ['$http', 'config'];
 
     function carService($http, config) {
-        var serviceBase = config.restApiUrl + '/cars';
+        var serviceBase = config.restApiUrl + 'cars';
         var service = {
             getCars: getChars,
         };
