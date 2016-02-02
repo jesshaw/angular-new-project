@@ -11,9 +11,9 @@
     angular.module('angularNewProjectApp')
         .controller('CarCtrl', CarCtrl);
 
-    CarCtrl.$injector = ['$scope', 'carService'];
+    CarCtrl.$injector = ['carService'];
 
-    function CarCtrl($scope, carService) {
+    function CarCtrl(carService) {
         var vm = this;
         vm.awesomeThings = [];
 
