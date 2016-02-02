@@ -3,25 +3,11 @@
 describe('Controller: CarCtrl', function() {
 
     // load the controller's module
+
     beforeEach(module('angularNewProjectApp'));
 
     var CarCtrl,
         carServiceMock;
-
-    // // define the mock Parse service
-    // beforeEach(function() {
-    //     carServiceMock = {
-    //         data: [],
-    //         getCars: function(url, callback) {
-    //             //emulate real work, any logic can be here
-    //             data.push('aa');
-    //             data.push('bb');
-    //             data.push('cc');
-    //             callback(data);
-    //         }
-    //     };
-    // });
-
 
 
     beforeEach(function() {

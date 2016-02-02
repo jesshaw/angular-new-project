@@ -12,9 +12,9 @@
         .module('angularNewProjectApp')
         .controller('FileCtrl', FileCtrl);
 
-    FileCtrl.$inject = ['Upload', '$timeout', 'fileService'];
+    FileCtrl.$inject = ['$timeout', 'fileService'];
 
-    function FileCtrl(Upload, $timeout, fileService) {
+    function FileCtrl($timeout, fileService) {
         var vm = this;
 
         vm.f = null;
