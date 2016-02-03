@@ -23,6 +23,14 @@
         };
 
         function link(scope, element) {
+
+            setActive();
+
+            //Monitor location changes
+            scope.$on('$locationChangeSuccess', setActive);
+
+            ////////////
+
             function setActive() {
                 var path = $location.path();
                 var className = scope.highlightClassName || 'active';
@@ -47,11 +55,6 @@
                     });
                 }
             }
-
-            setActive();
-
-            //Monitor location changes
-            scope.$on('$locationChangeSuccess', setActive);
         }
     }
 })();

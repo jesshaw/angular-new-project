@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: FileCtrl', function() {
+xdescribe('Controller: FileCtrl', function() {
 
     // load the controller's module
     beforeEach(module('angularNewProjectApp'));
