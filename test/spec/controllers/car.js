@@ -3,13 +3,7 @@
 describe('Controller: CarCtrl', function() {
 
     // load the controller's module
-
     beforeEach(module('angularNewProjectApp'));
-
-    var CarCtrl,
-        carServiceMock;
-
-
     beforeEach(function() {
         module('angularNewProjectApp');
 
@@ -30,6 +24,8 @@ describe('Controller: CarCtrl', function() {
             return null;
         });
     });
+
+    var CarCtrl;
 
     // Initialize the controller and a mock scope
     beforeEach(inject(function($controller, _carServiceMock_) {
